@@ -1,5 +1,10 @@
 # store-rest-api
 
+
+## Database
+
+I chose to use a non-relational database, in my opinion its better to work with collections instead of tables in this situations.
+
 ## Running the Unity tests
 
 There are Unity Tests on the project in order to ensure that it runs cohesively, and they can be found at their respective folders.

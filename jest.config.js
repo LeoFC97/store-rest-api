@@ -1,14 +1,17 @@
-module.exports = {
-  moduleFileExtensions: ['ts', 'tsx', 'mjs', 'js', 'json'],
-  preset: "ts-jest",
-  transform: {
-    '^.+\\.(js|jsx)?$': 'ts-jest'
-  },
+const ts = require('ts-jest/jest-preset')
+mongo = require('@shelf/jest-mongodb/jest-preset')
+const merge = require('merge')
+
+module.exports = merge.recursive(ts, mongo, {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
+  transform: {
+    '^.+\\.(js|jsx)?$': 'ts-jest'
+  },
   testMatch: [
-    '<rootDir>/src/**/*.test.ts'
+    '**/(src/**/*.test.ts)',
+    '<rootDir>/(src/**/*.test.ts)'
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-};
+});
