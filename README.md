@@ -5,6 +5,8 @@
 
 I chose to use a non-relational database, in my opinion its better to work with collections instead of tables in this situations.
 
+For hosting database i chose mongoDbAtlas, because it have a free tier that can be hosted on AWS, Google Cloud or Azure. I chose Google Cloud beacuse its the only one that was SouthAmerica (São Paulo) as a region on the free tier.
+
 ## Running the Unity tests
 
 There are Unity Tests on the project in order to ensure that it runs cohesively, and they can be found at their respective folders.
