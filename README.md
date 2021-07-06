@@ -1,5 +1,25 @@
 # store-rest-api
 
+## Authentication
+
+For autentication this API needs a JWT on http request headers. Following this format:
+
+```
+Authorization: Bearer {{JWT TOKEN}}
+```
+
+The token must have this structure:
+
+```
+{
+  "user": {
+    "email": String,
+    "fullName": String
+  },
+  "iat": Number
+}
+```
+This token can be genereate at: https://jwt.io, just follow the struct above.
 
 ## Database
 
