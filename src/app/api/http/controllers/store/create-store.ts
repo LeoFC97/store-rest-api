@@ -6,7 +6,7 @@ import CreateStoreValidator from '../../../../validators/create-store';
 import { CreateStoreBodyData } from '../../../../interfaces/entities/store/store';
 
 @injectable()
-class ApproveAdjustmentController implements Controller {
+class CreateStoreController implements Controller {
   constructor(
     private createStoreUseCase: CreateStoreUseCase,
     private createStoreValidator: CreateStoreValidator,
@@ -23,4 +23,4 @@ class ApproveAdjustmentController implements Controller {
   }
 }
 
-export default ApproveAdjustmentController;
+export default CreateStoreController;
