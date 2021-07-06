@@ -35,3 +35,7 @@ The tests cover subjects such as string sanitazing and sorting methods. The test
 ```
 npm run test
 ```
+
+## Continuos Integration
+
+For C.I this projects uses GitHub actions to run tests, the script can be foud at [continuosIntegration.yml](./.github/continuosIntegration.yml)
