@@ -38,4 +38,4 @@ npm run test
 
 ## Continuos Integration
 
-For C.I this projects uses GitHub actions to run tests, the script can be foud at [continuosIntegration.yml](./.github/continuosIntegration.yml)
+For C.I this projects uses GitHub actions to run tests, the script can be foud at [continuosIntegration.yml](./.github/workflows/continuosIntegration.yml)
