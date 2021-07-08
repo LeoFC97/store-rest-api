@@ -9,6 +9,7 @@
     "build": "tsc --build",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:ci": "jest",
+    "coverage": "jest --collect-coverage",
     "test:watch": "jest --watch --verbose",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
