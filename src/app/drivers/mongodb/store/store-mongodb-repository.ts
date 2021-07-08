@@ -2,7 +2,6 @@ import {
   Document,
   Model,
   model,
-  ObjectId,
 } from 'mongoose';
 import StoreRepository from '../../../interfaces/entities/store/store-repository';
 import StoreSchema from './store-schema';
@@ -20,9 +19,12 @@ class StoreMongoDBRepository implements StoreRepository {
     const storeCreated = await this.model.create(storeToBeCreated);
     return storeCreated;
   }
-  async deleteById(storeId: ObjectId): Promise<boolean> {
+  async deleteById(storeId: string): Promise<boolean> {
     const storeRemoved = await this.model.findOneAndRemove({ _id: storeId });
-    return true;
+    if (storeRemoved) {
+      return true;
+    }
+    return false;
   }
 }
 
