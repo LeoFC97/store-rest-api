@@ -6,14 +6,13 @@ import CreateStoreValidator from '../../../../validators/create-store';
 import { CreateStoreBodyData } from '../../../../interfaces/entities/store/store';
 
 @injectable()
-class ApproveAdjustmentController implements Controller {
+class CreateStoreController implements Controller {
   constructor(
     private createStoreUseCase: CreateStoreUseCase,
     private createStoreValidator: CreateStoreValidator,
   ) {}
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const { body, user } = httpRequest;
-
     const data = await this.createStoreValidator
       .validate<CreateStoreBodyData>(body);
     await this.createStoreUseCase.execute({ store: data, user });
@@ -23,4 +22,4 @@ class ApproveAdjustmentController implements Controller {
   }
 }
 
-export default ApproveAdjustmentController;
+export default CreateStoreController;

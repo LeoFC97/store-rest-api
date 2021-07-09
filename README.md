@@ -21,6 +21,57 @@ The token must have this structure:
 ```
 This token can be genereate at: https://jwt.io, just follow the struct above.
 
+
+## API Resources
+
+
+# Create Store
+
+[POST] /store
+Request Body:
+
+```
+{
+	"name":"loja do melhor blitz da região brasileira internacional",
+	"pictureUrL":"www.mock.com.xD",
+	"address":{
+		"cep":"123",
+		"street": "rua de teste",
+		"number": 245,
+		"complement":"oiue"
+	}
+}
+```
+Response code: 201
+
+# List all Stores
+
+[GET] /stores
+
+Response Body:{
+  [
+    {
+      "address": {
+        "cep": "123",
+        "street": "rua de teste",
+        "number": 245,
+        "complement": "oiue"
+      },
+      "createdBy": {
+        "email": "mock@mock.com",
+        "name": "mocked name"
+      },
+      "_id": "60e7b7c30399e745943b3f25",
+      "name": "loja do melhor blitz da região brasileira internacional",
+      "pictureUrL": "www.mock.com.xD",
+      "createdAt": "2021-07-09T02:43:15.534Z",
+      "updatedAt": "2021-07-09T02:43:15.534Z",
+      "__v": 0
+    }
+  ]
+}
+
+
 ## Database
 
 I chose to use a non-relational database, in my opinion its better to work with collections instead of tables in this situations.
