@@ -13,7 +13,6 @@ class CreateStoreController implements Controller {
   ) {}
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const { body, user } = httpRequest;
-
     const data = await this.createStoreValidator
       .validate<CreateStoreBodyData>(body);
     await this.createStoreUseCase.execute({ store: data, user });
