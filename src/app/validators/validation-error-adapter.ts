@@ -21,7 +21,6 @@ export default class JoiValidationErrorAdapter {
     const message = JoiValidationErrorAdapter.formatMessage(detail);
 
     const validationError = new ValidationError(message);
-    console.log(validationError);
 
     return validationError;
   }
