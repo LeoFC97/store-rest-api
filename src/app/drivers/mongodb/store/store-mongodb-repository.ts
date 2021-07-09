@@ -23,6 +23,13 @@ class StoreMongoDBRepository implements StoreRepository {
     const stores = await this.model.find();
     return stores;
   }
+  async deleteById(storeId: string): Promise<boolean> {
+    const storeRemoved = await this.model.findOneAndRemove({ _id: storeId });
+    if (storeRemoved) {
+      return true;
+    }
+    return false;
+  }
 }
 
 export default StoreMongoDBRepository;

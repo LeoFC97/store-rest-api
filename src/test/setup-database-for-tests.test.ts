@@ -19,15 +19,11 @@ describe('Adjustment MongoDb Repository', () => {
     const { host } = collectionForTesting.conn;
     expect(host).toBe('127.0.0.1');
   });
-  it('Check if database is set to localhost ', () => {
-    const { port } = collectionForTesting.conn;
-    expect(port).toBeGreaterThan(40000);
-  });
-  it('Check if database is set to localhost ', () => {
+  it('Check if database use is not defined ', () => {
     const { user } = collectionForTesting.conn;
     expect(user).toBeUndefined();
   });
-  it('Check if database is set to localhost ', () => {
+  it('Check if database password is not defined', () => {
     const { pass } = collectionForTesting.conn;
     expect(pass).toBeUndefined();
   });

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { Collection, Connection } from 'mongoose';
 import Store from 'app/interfaces/entities/store/store';
 import SetupDatabaseForTests from '../../../../test/setup-database-for-tests';
@@ -25,10 +26,10 @@ describe('Store MongoDB Repository', () => {
   });
 
   afterEach(async () => {
-    await storeCollection.remove({});
+    await storeCollection.deleteMany({});
   });
 
-  it('Should create store when create method is called', async () => {
+  it('Should create store when create method creat is called', async () => {
     await storeRepository.create(createStoreData);
 
     const createdStore: Store = await storeCollection.findOne(
@@ -40,5 +41,24 @@ describe('Store MongoDB Repository', () => {
     expect(createdStore.pictureUrL).toBe(createStoreData.pictureUrL);
     expect(createdStore.address).toStrictEqual(createStoreData.address);
     expect(createdStore.createdBy).toStrictEqual(createStoreData.createdBy);
+  });
+  it('Should delete store when create method deleteById is called', async () => {
+    await storeCollection.insertOne(createStoreData);
+
+    const createdStore: Store = await storeCollection.findOne(
+      { name: createStoreData.name },
+    );
+    const storeWasDeleated : boolean = await storeRepository
+      .deleteById(createdStore._id.toHexString());
+    const storeExistis: Store = await storeCollection.findOne(
+      { name: createStoreData.name },
+    );
+    expect(storeExistis).toBeNull();
+    expect(storeWasDeleated).toBeTruthy();
+  });
+  it('Should return false when didnt find a store to deleted', async () => {
+    const storeWasDeleated : boolean = await storeRepository
+      .deleteById('60e67963b9bd7320c7f71833');
+    expect(storeWasDeleated).toBeFalsy();
   });
 });

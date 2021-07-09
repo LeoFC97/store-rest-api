@@ -20,7 +20,7 @@ describe('Create store use case', () => {
   beforeEach(async () => {
     makeSpyOnExecuteUseCase();
   });
-  test('Should call create store repository with correct adjustment id', async () => {
+  test('Should call create store repository with correct store data', async () => {
     const useCase = new CreateStoreUseCase(storeMongoDBRepositoryResolved);
     const expectedCreateStoreData = {
       address: {
