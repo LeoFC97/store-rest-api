@@ -2,11 +2,11 @@ import { injectable } from 'tsyringe';
 import Controller from '../../../../interfaces/http/controller';
 import { HttpRequest, HttpResponse } from '../../../../interfaces/http/http';
 import DeleteStoreByIdUseCase from '../../../../use-cases/store/delete-store-by-id';
-import ParamStoreIdValidator from '../../../../validators/param-adjustment-id';
+import ParamStoreIdValidator from '../../../../validators/param-store-id';
 import { ParamStoreIdData } from '../../../../interfaces/use-cases/create-store';
 
 @injectable()
-class ApproveAdjustmentController implements Controller {
+class DeleteStoreByIdController implements Controller {
   constructor(
     private deleteStoreByIdUseCase: DeleteStoreByIdUseCase,
     private paramStoreIdValidator: ParamStoreIdValidator,
@@ -16,7 +16,6 @@ class ApproveAdjustmentController implements Controller {
 
     const paramStoreId = await this.paramStoreIdValidator
       .validate<ParamStoreIdData>(params);
-    console.log(paramStoreId);
     await this.deleteStoreByIdUseCase.execute(paramStoreId.storeId);
     return {
       status: 200,
@@ -24,4 +23,4 @@ class ApproveAdjustmentController implements Controller {
   }
 }
 
-export default ApproveAdjustmentController;
+export default DeleteStoreByIdController;
