@@ -10,9 +10,8 @@ class ApproveAdjustmentController implements Controller {
   ) {}
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const { params } = httpRequest;
-    console.log(params);
 
-    await this.deleteStoreByIdUseCase.execute('params');
+    await this.deleteStoreByIdUseCase.execute(params!.storeId);
     return {
       status: 200,
     };
