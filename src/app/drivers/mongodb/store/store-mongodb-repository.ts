@@ -19,6 +19,10 @@ class StoreMongoDBRepository implements StoreRepository {
     const storeCreated = await this.model.create(storeToBeCreated);
     return storeCreated;
   }
+  async listAll(): Promise<Store[]> {
+    const stores = await this.model.find();
+    return stores;
+  }
   async deleteById(storeId: string): Promise<boolean> {
     const storeRemoved = await this.model.findOneAndRemove({ _id: storeId });
     if (storeRemoved) {
