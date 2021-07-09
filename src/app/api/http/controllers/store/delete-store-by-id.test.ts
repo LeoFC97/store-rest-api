@@ -4,7 +4,7 @@ import { HttpResponse } from '../../../../interfaces/http/http';
 import container from '../../../../container';
 import ValidationError from '../../../../errors/validation';
 import userMock from '../../../../../test/mocks/user';
-import ParamStoreIdValidator from '../../../../validators/param-adjustment-id';
+import ParamStoreIdValidator from '../../../../validators/param-store-id';
 
 const deleteStoreByIdUseCase: DeleteStoreByIdUseCase = container.resolve(
   DeleteStoreByIdUseCase,
