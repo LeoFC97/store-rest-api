@@ -34,7 +34,6 @@ class StoreMongoDBRepository implements StoreRepository {
     const store = await this.model.findOne({ _id: storeId });
     return store as Store;
   }
-
 }
 
 export default StoreMongoDBRepository;
