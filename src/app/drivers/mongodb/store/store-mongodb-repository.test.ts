@@ -61,4 +61,14 @@ describe('Store MongoDB Repository', () => {
       .deleteById('60e67963b9bd7320c7f71833');
     expect(storeWasDeleated).toBeFalsy();
   });
+  it('Should return storeObject when find a store to query', async () => {
+    await storeCollection.insertOne(createStoreData);
+    const store : Store = await storeRepository.getById('60e67963b9bd7320c7f71833');
+    expect(store).toBeDefined();
+  });
+  it('Should return empty when didnt find a store to query', async () => {
+    await storeCollection.insertOne(createStoreData);
+    const store : Store = await storeRepository.getById('60e67963b9bd7320c7f71833');
+    expect(store).toBeNull();
+  });
 });
