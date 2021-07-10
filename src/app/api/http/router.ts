@@ -5,7 +5,7 @@ import { adapt } from '../../drivers/http/express-router-adapter';
 import HealthController from './controllers/health';
 import CreateStoreController from './controllers/store/create-store';
 import ListAllStoresController from './controllers/store/list-all-stores';
-import DeleteByIdController from './controllers/store/delete-by-id';
+import DeleteByIdController from './controllers/store/delete-store-by-id';
 
 const router = express.Router();
 

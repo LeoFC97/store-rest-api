@@ -2,7 +2,7 @@
 import { Collection, Connection } from 'mongoose';
 import SetupDatabaseForTests from './setup-database-for-tests';
 
-describe('Adjustment MongoDb Repository', () => {
+describe('Mocked Mongo Db', () => {
   let connection: Connection;
   let collectionForTesting: Collection;
 
