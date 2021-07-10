@@ -66,7 +66,7 @@ describe('Store MongoDB Repository', () => {
     const store : Store = await storeRepository.getById('60e67963b9bd7320c7f71833');
     expect(store).toBeDefined();
   });
-  it('Should return empty when didnt find a store to query', async () => {
+  it('Should return null when didnt find a store to query', async () => {
     await storeCollection.insertOne(createStoreData);
     const store : Store = await storeRepository.getById('60e67963b9bd7320c7f71833');
     expect(store).toBeNull();
