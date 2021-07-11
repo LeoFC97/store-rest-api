@@ -6,7 +6,7 @@ import ExpressMiddleware, { RequestExpress } from '../../../interfaces/http/expr
 @injectable()
 class PathNotFoundMiddleware implements ExpressMiddleware {
   execute(req: RequestExpress, res: Response, next: NextFunction): void {
-    next(new ResourceNotFoundError('error.message.PathNotFound'));
+    next(new ResourceNotFoundError('Url path does not exists'));
   }
 }
 
