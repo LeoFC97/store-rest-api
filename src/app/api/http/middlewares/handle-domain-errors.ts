@@ -13,6 +13,5 @@ export default (error: Error, req: Request, _res: Response, next: NextFunction):
 
   if (error instanceof EntityNotFoundError) return next(new NotFoundHttpError(error));
 
-  console.error(error);
   return next(new InternalServerHttpError(error));
 };
