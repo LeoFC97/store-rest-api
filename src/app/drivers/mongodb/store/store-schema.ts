@@ -9,7 +9,7 @@ const StoreSchema = new Schema(
     },
     pictureUrL: {
       type: String,
-      required: false,
+      required: true,
     },
     address: {
       cep: {
