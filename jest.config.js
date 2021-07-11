@@ -11,7 +11,9 @@ module.exports = merge.recursive(ts, mongo, {
   },
   testMatch: [
     '**/(src/**/*.test.ts)',
-    '<rootDir>/(src/**/*.test.ts)'
+    '<rootDir>/(src/**/*.test.ts)',
+    '**/(src/**/*.spec.ts)',
+    '<rootDir>/(src/**/*.spec.ts)'
   ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 });

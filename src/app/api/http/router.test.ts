@@ -45,4 +45,10 @@ describe('Check if all endpoints are declarated', () => {
       && endpoint.route.methods.delete);
     expect(healthMethod).toBeTruthy();
   });
+  test('Should exists method GET on /store/:storeId', async () => {
+    const pathToBeTested = '/store/:storeId';
+    const healthMethod = router.stack.some((endpoint) => endpoint.route.path === pathToBeTested
+      && endpoint.route.methods.get);
+    expect(healthMethod).toBeTruthy();
+  });
 });

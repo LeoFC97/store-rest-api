@@ -30,6 +30,10 @@ class StoreMongoDBRepository implements StoreRepository {
     }
     return false;
   }
+  async getById(storeId: string): Promise<Store> {
+    const store = await this.model.findOne({ _id: storeId });
+    return store as Store;
+  }
 }
 
 export default StoreMongoDBRepository;
