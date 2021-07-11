@@ -16,8 +16,9 @@ class FindStoreByIdController implements Controller {
 
     const paramStoreId = await this.paramStoreIdValidator
       .validate<ParamStoreIdData>(params);
-    await this.findStoreByIdUseCase.execute(paramStoreId.storeId);
+    const store = await this.findStoreByIdUseCase.execute(paramStoreId.storeId);
     return {
+      body: store,
       status: 200,
     };
   }

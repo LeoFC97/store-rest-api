@@ -15,8 +15,11 @@ class CreateStoreController implements Controller {
     const { body, user } = httpRequest;
     const data = await this.createStoreValidator
       .validate<CreateStoreBodyData>(body);
-    await this.createStoreUseCase.execute({ store: data, user });
+    const { _id: storeId } = await this.createStoreUseCase.execute({ store: data, user });
     return {
+      body: {
+        storeId,
+      },
       status: 200,
     };
   }
