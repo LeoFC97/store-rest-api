@@ -2,7 +2,7 @@ import { inject, injectable } from 'tsyringe';
 import Store from '../../interfaces/entities/store/store';
 import UseCase from '../../interfaces/use-case';
 import StoreRepository from '../../interfaces/entities/store/store-repository';
-import EntityNotFoundError from 'app/errors/entity-not-found';
+import EntityNotFoundError from '../../errors/entity-not-found';
 
 @injectable()
 class FindStoreByIdUseCase implements UseCase {
