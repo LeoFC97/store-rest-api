@@ -3,7 +3,7 @@ import { CreateProductData, CreateProductBodyData, CreateProductUseCaseData } fr
 import mockUser from './user';
 
 export const createProductData: CreateProductData = {
-  name: 'Mocked Store',
+  name: 'Mocked Product',
   pictureUrL: 'www.urlForMocking.com',
   price: 3990,
   category: 'PIZZA',
@@ -11,13 +11,13 @@ export const createProductData: CreateProductData = {
 };
 
 export const createProductBodyDataMock: CreateProductBodyData = {
-  name: 'Store name for testing',
+  name: 'Product name for testing',
   pictureUrL: 'www.urlForMocking.com',
   category: 'TACOS',
   price: 1200,
 };
 
-export const createStoreUseCaseDataMock: CreateProductUseCaseData = {
+export const createProductUseCaseDataMock: CreateProductUseCaseData = {
   product: createProductBodyDataMock,
   user: mockUser,
 };
