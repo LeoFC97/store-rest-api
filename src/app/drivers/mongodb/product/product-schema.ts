@@ -1,33 +1,23 @@
 import { Schema } from 'mongoose';
 
-const StoreSchema = new Schema(
+const ProductSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
       index: true,
     },
+    price: {
+      type: Number,
+      required: true,
+    },
     pictureUrL: {
       type: String,
       required: true,
     },
-    address: {
-      cep: {
-        type: String,
-        required: true,
-      },
-      street: {
-        type: String,
-        required: true,
-      },
-      number: {
-        type: Number,
-        required: true,
-      },
-      complement: {
-        type: String,
-        required: true,
-      },
+    category: {
+      type: String,
+      required: true,
     },
     createdBy: {
       email: {
@@ -45,4 +35,4 @@ const StoreSchema = new Schema(
   },
 );
 
-export default StoreSchema;
+export default ProductSchema;
