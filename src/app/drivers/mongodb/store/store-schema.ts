@@ -39,6 +39,10 @@ const StoreSchema = new Schema(
         required: true,
       },
     },
+    products: {
+      type: Array,
+      required: false,
+    },
   },
   {
     timestamps: true,
