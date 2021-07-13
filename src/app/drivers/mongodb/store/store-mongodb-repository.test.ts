@@ -4,12 +4,14 @@ import Store from 'app/interfaces/entities/store/store';
 import SetupDatabaseForTests from '../../../../test/setup-database-for-tests';
 import StoreMongoDBRepository from './store-mongodb-repository';
 import { createStoreData } from '../../../../test/mocks/store';
+import Product from '../../../interfaces/entities/product/product';
+import { createProductData } from '../../../../test/mocks/product';
 
 describe('Store MongoDB Repository', () => {
   let connection: Connection;
 
   let storeCollection: Collection;
-
+  let productCollection: Collection;
   let storeRepository: StoreMongoDBRepository;
 
   beforeAll(async () => {
@@ -17,6 +19,7 @@ describe('Store MongoDB Repository', () => {
     connection = SetupDatabaseForTests.getConnection();
 
     storeCollection = connection.collection('stores');
+    productCollection = connection.collection('products');
 
     storeRepository = new StoreMongoDBRepository();
   });
@@ -26,6 +29,7 @@ describe('Store MongoDB Repository', () => {
   });
 
   afterEach(async () => {
+    await productCollection.deleteMany({});
     await storeCollection.deleteMany({});
   });
 
@@ -70,5 +74,30 @@ describe('Store MongoDB Repository', () => {
     await storeCollection.insertOne(createStoreData);
     const store : Store = await storeRepository.getById('60e67963b9bd7320c7f71833');
     expect(store).toBeNull();
+  });
+  it('Should return true when add new product to product to Store recive correct storeId', async () => {
+    await storeCollection.insertOne(createStoreData);
+    await productCollection.insertOne(createProductData);
+    const { _id: storeCreatedId }: Store = await storeCollection.findOne({});
+    const { _id: productCreatedId }: Product = await productCollection.findOne({});
+    const objectsIdParsedToString = {
+      productCreatedId: productCreatedId.toHexString(),
+      storeCreatedId: storeCreatedId.toHexString(),
+    };
+    const productWasAdded = await storeRepository.addProductToArrayOfProducts(
+      objectsIdParsedToString.productCreatedId, objectsIdParsedToString.storeCreatedId,
+    );
+    expect(productWasAdded).toBeTruthy();
+  });
+  it('Should return false when add new product to Store recive wrong storeId ', async () => {
+    await productCollection.insertOne(createProductData);
+    const { _id: productCreatedId }: Product = await productCollection.findOne({});
+    const objectsIdParsedToString = {
+      productCreatedId: productCreatedId.toHexString(),
+    };
+    const productWasAdded = await storeRepository.addProductToArrayOfProducts(
+      objectsIdParsedToString.productCreatedId, '11ee16222ac43f432cd3bd25',
+    );
+    expect(productWasAdded).toBeFalsy();
   });
 });
