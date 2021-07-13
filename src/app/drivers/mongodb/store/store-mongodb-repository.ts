@@ -1,8 +1,9 @@
-import {
+import mongoose, {
   Document,
   Model,
   model,
 } from 'mongoose';
+import { ObjectID } from 'mongodb';
 import StoreRepository from '../../../interfaces/entities/store/store-repository';
 import StoreSchema from './store-schema';
 import Store, { CreateStoreData } from '../../../interfaces/entities/store/store';
@@ -33,6 +34,16 @@ class StoreMongoDBRepository implements StoreRepository {
   async getById(storeId: string): Promise<Store> {
     const store = await this.model.findOne({ _id: storeId });
     return store as Store;
+  }
+  async addProductToArrayOfProducts(productId: string, storeId: string): Promise<boolean> {
+    const productWasAdded = await this.model.updateOne(
+      { _id: storeId },
+      { $addToSet: { products: new mongoose.mongo.ObjectID(productId) } },
+    );
+    if (productWasAdded.nModified !== 0) {
+      return true;
+    }
+    return false;
   }
 }
 

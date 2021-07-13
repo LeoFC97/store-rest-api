@@ -5,4 +5,5 @@ export default interface StoreRepository {
   deleteById(storeString: string): Promise<boolean>;
   listAll(): Promise<Store[]>;
   getById(storeId: string): Promise<Store>;
+  addProductToArrayOfProducts(productId: string, storeId: string): Promise<boolean>;
 }
