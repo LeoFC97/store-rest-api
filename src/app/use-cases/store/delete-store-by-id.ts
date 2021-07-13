@@ -11,7 +11,6 @@ class DeleteStoreByIdUseCase implements UseCase {
 
   async execute(storeIdToBeRemoved: string): Promise<boolean> {
     const storeWasDeleated = await this.storeRepository.deleteById(storeIdToBeRemoved);
-    console.log(storeWasDeleated);
     if (!storeWasDeleated) {
       throw new EntityNotFoundError('store not found for this id');
     } else {
