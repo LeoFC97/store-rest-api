@@ -3,7 +3,7 @@ import Controller from '../../../../interfaces/http/controller';
 import { HttpRequest, HttpResponse } from '../../../../interfaces/http/http';
 import DeleteStoreByIdUseCase from '../../../../use-cases/store/delete-store-by-id';
 import ParamStoreIdValidator from '../../../../validators/param-store-id';
-import { ParamStoreIdData } from '../../../../interfaces/use-cases/create-store';
+import { ParamStoreIdData } from '../../../../interfaces/use-cases/store';
 
 @injectable()
 class DeleteStoreByIdController implements Controller {
