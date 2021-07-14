@@ -73,4 +73,15 @@ describe('Check if all endpoints are declarated', () => {
       && endpoint.route.methods.post);
     expect(healthMethod).toBeTruthy();
   });
+  test('Should exist path /store/remove-product', async () => {
+    const pathToBeTested = '/store/remove-product';
+    const healthEnpoint = router.stack.find((endpoint) => endpoint.route.path === pathToBeTested);
+    expect(healthEnpoint).toBeDefined();
+  });
+  test('Should exists method DELETE on /store/remove-product', async () => {
+    const pathToBeTested = '/store/remove-product';
+    const healthMethod = router.stack.some((endpoint) => endpoint.route.path === pathToBeTested
+      && endpoint.route.methods.delete);
+    expect(healthMethod).toBeTruthy();
+  });
 });
