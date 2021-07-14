@@ -18,6 +18,7 @@ class ExpressRouterAdapter {
         const httpResponse = await controller.handle(httpRequest);
         res.status(httpResponse.status).json(httpResponse.body);
       } catch (err) {
+        console.error(err);
         next(err);
       }
     };

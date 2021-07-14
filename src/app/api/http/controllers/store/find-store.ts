@@ -3,7 +3,7 @@ import Controller from '../../../../interfaces/http/controller';
 import { HttpRequest, HttpResponse } from '../../../../interfaces/http/http';
 import FindStoreByIdUseCase from '../../../../use-cases/store/find-store-by-id';
 import ParamStoreIdValidator from '../../../../validators/param-store-id';
-import { ParamStoreIdData } from '../../../../interfaces/use-cases/create-store';
+import { ParamStoreIdData } from '../../../../interfaces/use-cases/store';
 
 @injectable()
 class FindStoreByIdController implements Controller {
