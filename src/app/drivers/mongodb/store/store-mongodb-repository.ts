@@ -45,6 +45,17 @@ class StoreMongoDBRepository implements StoreRepository {
     }
     return false;
   }
+  async removeProductFromStore(productId: string, storeId: string): Promise<boolean> {
+    console.log(productId);
+    const productToBeRemoved = await this.model.updateOne(
+      { _id: storeId },
+      { $pull: { products: new mongoose.mongo.ObjectID(productId) } },
+    );
+    if (productToBeRemoved.nModified !== 0) {
+      return true;
+    }
+    return false;
+  }
 }
 
 export default StoreMongoDBRepository;

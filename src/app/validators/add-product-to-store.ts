@@ -1,7 +1,7 @@
 import BaseSchemaValidator from './base-schema-validator';
 import addProductToStoreJoiSchema from './schemas/add-product-to-store';
 
-class CreateStoreValidator extends BaseSchemaValidator {
+class AddProductToStoreValidator extends BaseSchemaValidator {
   constructor(
     schema = addProductToStoreJoiSchema,
   ) {
@@ -9,4 +9,4 @@ class CreateStoreValidator extends BaseSchemaValidator {
   }
 }
 
-export default CreateStoreValidator;
+export default AddProductToStoreValidator;

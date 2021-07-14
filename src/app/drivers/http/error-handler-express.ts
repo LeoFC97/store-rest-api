@@ -11,7 +11,6 @@ class ErrorHandlerExpress {
     const defaultMessage = 'Ocorreu um erro inesperado';
 
     const statusCode = typeof error.status === 'number' ? error.status : 500;
-
     res.status(statusCode);
     const { nodeEnv } = service;
     if (nodeEnv === 'production' && (!error.status || error.status >= 500)) {

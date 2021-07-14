@@ -42,6 +42,11 @@ export interface ProductToBeAddedToStoreUseCaseData {
   storeId: string,
   user: User,
 }
+export interface ProductToBeRemovedFromStoreUseCaseData {
+  productId: string,
+  storeId: string,
+  user: User,
+}
 
 export interface ProductToBeAddedToStoreBodyData {
   productId: string,

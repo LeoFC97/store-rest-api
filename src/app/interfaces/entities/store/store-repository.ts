@@ -6,4 +6,5 @@ export default interface StoreRepository {
   listAll(): Promise<Store[]>;
   getById(storeId: string): Promise<Store>;
   addProductToArrayOfProducts(productId: string, storeId: string): Promise<boolean>;
+  removeProductFromStore(productId: string, storeId: string): Promise<boolean>;
 }
