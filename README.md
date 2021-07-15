@@ -25,51 +25,76 @@ This token can be genereate at: https://jwt.io, just follow the struct above.
 ## API Resources
 
 
-# Create Store
+### Create Store
 
-[POST] /store
+`[POST] /store`
 Request Body:
 
 ```
 {
-	"name":"loja do melhor blitz da região brasileira internacional",
-	"pictureUrL":"www.mock.com.xD",
-	"address":{
-		"cep":"123",
-		"street": "rua de teste",
-		"number": 245,
-		"complement":"oiue"
-	}
+  "name":"Store for readme example",
+  "pictureUrL": string,
+  "address": {
+    "cep": string,
+    "street": string,
+    "number": number,
+    "complement": string
+  },
 }
 ```
-Response code: 201
+Response code: `201`
 
-# List all Stores
+### List all Stores
 
 [GET] /stores
 
+```
 Response Body:{
   [
     {
       "address": {
-        "cep": "123",
-        "street": "rua de teste",
-        "number": 245,
-        "complement": "oiue"
+        "cep": string,
+        "street": string,
+        "number": number,
+        "complement": string
       },
       "createdBy": {
-        "email": "mock@mock.com",
-        "name": "mocked name"
+        "email": string,
+        "name": string
       },
-      "_id": "60e7b7c30399e745943b3f25",
-      "name": "loja do melhor blitz da região brasileira internacional",
-      "pictureUrL": "www.mock.com.xD",
-      "createdAt": "2021-07-09T02:43:15.534Z",
-      "updatedAt": "2021-07-09T02:43:15.534Z",
-      "__v": 0
+      "_id": ObjectID,
+      "name": string,
+      "pictureUrL": string,
+      "createdAt": ISODate,
+      "updatedAt": ISODate
     }
   ]
 }
+```
+Response code: `200`
+
+### Delete Store
+
+[DELETE] /store
+Request params:
+
+```
+storeId: string
+```
+
+```
+{
+	"name":"Store for readme example",
+	"pictureUrL":"www.mock.com",
+	"address":{
+		"cep":"123",
+		"street": "rua de teste",
+		"number": 245,
+		"complement":"in front of bakery"
+	}
+}
+```
+Response code: `201`
 
 
 ## Database
