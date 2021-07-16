@@ -81,20 +81,7 @@ Request params:
 ```
 storeId: string
 ```
-
-```
-{
-	"name":"Store for readme example",
-	"pictureUrL":"www.mock.com",
-	"address":{
-		"cep":"123",
-		"street": "rua de teste",
-		"number": 245,
-		"complement":"in front of bakery"
-	}
-}
-```
-Response code: `201`
+Response code: `200`
 
 
 ## Database
@@ -110,6 +97,20 @@ The tests cover subjects such as string sanitazing and sorting methods. The test
 
 ```
 npm run test
+```
+
+## Running local
+
+To run the project local at your machine you need a .evn file, following the example on .env.example. Then, just run the following commands:
+
+To install:
+```
+npm install
+```
+
+To run:
+```
+npm start:dev
 ```
 
 ## Continuos Integration
